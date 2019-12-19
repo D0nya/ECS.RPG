@@ -16,7 +16,7 @@ namespace rpg.API.Creator.UnitFactory
                                         new ManaComponent(200),
                                         new ArmorComponent(1),
                                         new SkillComponent());
-            Unit.SkillComponent.Skills.Add(SkillEnum.SHOT, new Shot(50, 150));
+            Unit.SkillComponent.ActiveSkills.Add(ActiveSkill.SHOT, new Shot(50, 150));
             return Unit;
         }
     }

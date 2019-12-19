@@ -1,11 +1,12 @@
-﻿using rpg.Systems.Interfaces.Events;
-using System;
+﻿using rpg.Systems.Interfaces.Actions;
 
 namespace rpg.Systems.Interfaces
 {
+    /// <summary>
+    /// Processes <seealso cref="ISkillAction"/>s
+    /// </summary>
     public interface ISkillSystem : ISystem
     {
-        event Action SkillCasts;
-        ISkillEvent SkillEvent { get; set; }
+        ISkillAction SkillAction { get; set; }
     }
 }

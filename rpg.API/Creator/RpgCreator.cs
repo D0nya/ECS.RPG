@@ -36,5 +36,11 @@ namespace rpg.API.Creator
             unitFactory = new PaladinFactory();
             return unitFactory.CreateUnit() as Paladin;
         }
+
+        public Mage CreateMage()
+        {
+            unitFactory = new MageFactory();
+            return unitFactory.CreateUnit() as Mage;
+        }
     }
 }

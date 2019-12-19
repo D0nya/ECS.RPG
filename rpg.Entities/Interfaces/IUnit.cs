@@ -1,10 +1,11 @@
 ﻿using rpg.Components.Interfaces;
+using rpg.Entities.Models.Enums;
 
 namespace rpg.Entities.Interfaces
 {
     public interface IUnit : IEntity
     {
-        string Name { get; }
+        Units Name { get; }
         IAttackComponent AttackComponent { get; set; }
         IHealthComponent HealthComponent { get; set; }
         IManaComponent ManaComponent { get; set; }

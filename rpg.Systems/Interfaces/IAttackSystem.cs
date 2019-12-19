@@ -1,12 +1,12 @@
-﻿using rpg.Systems.Interfaces.Events;
-using System;
+﻿using rpg.Systems.Interfaces.Actions;
 
 namespace rpg.Systems.Interfaces
 {
+    /// <summary>
+    /// Processes <seealso cref="IAttackAction"/>s
+    /// </summary>
     public interface IAttackSystem : ISystem
     {
-        event Action AttackPerformes;
-        IAttackEvent AttackEvent { get; set; }
-
+        IAttackAction AttackAction { get; set; }
     }
 }

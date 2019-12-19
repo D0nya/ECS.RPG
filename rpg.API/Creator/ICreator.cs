@@ -10,5 +10,6 @@ namespace rpg.API.Creator
         ArcherCaptain CreateArcherCaptain();
         Skeleton CreateSkeleton();
         Paladin CreatePaladin();
+        Mage CreateMage();
     }
 }

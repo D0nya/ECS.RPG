@@ -1,34 +1,59 @@
 ﻿using System;
 using rpg.Components.Skills.Enums;
 using rpg.Systems.Interfaces;
-using rpg.Systems.Interfaces.Events;
-using rpg.Systems.Interfaces.SkillStrategy;
+using rpg.Systems.Interfaces.Actions;
+using rpg.Systems.SkillStrategy;
 
 namespace rpg.Systems.Models
 {
     public class SkillSystem : ISkillSystem
     {
-        public event Action SkillCasts;
-        public ISkillEvent SkillEvent { get; set; }
-        public ISkillStrategy skillStrategy { get; set; } = null;
-        
-        public SkillSystem(ISkillEvent skillEvent)
-        {
 
-            SkillEvent = skillEvent;
-            switch(skillEvent.Skill)
+        private ISkillAction skillAction;
+
+        /// <summary>
+        /// Concrete class that will process action
+        /// </summary>
+        public ISkillStrategy SkillStrategy { get; set; } = null;
+        /// <summary>
+        /// Action to be processed
+        /// </summary>
+        public ISkillAction SkillAction 
+        {
+            get => skillAction;
+            set
             {
-                case SkillEnum.SHOT:
-                    skillStrategy = new ShotStrategy(skillEvent);
-                    break;
+                skillAction = value;
+                switch (skillAction.Skill)
+                {
+                    case ActiveSkill.SHOT:
+                        SkillStrategy = new ShotStrategy(skillAction);
+                        break;
+                    case ActiveSkill.HEAL:
+                        SkillStrategy = new HealStrategy(skillAction);
+                        break;
+                    case ActiveSkill.FIREBALL:
+                        SkillStrategy = new FireballStrategy(skillAction);
+                        break;
+                    default:
+                        SkillStrategy = null;
+                        break;
+                }
             }
+        }
+
+        public SkillSystem()
+        {
+        }
+        public SkillSystem(ISkillAction skillAction)
+        {
+            SkillAction = skillAction;
         }
 
         public void Execute()
         {
-            if(SkillCasts != null)
-                SkillCasts.Invoke();
-            skillStrategy.Cast();
+            if(SkillStrategy != null)
+                SkillStrategy.Cast();
         }
     }
 }

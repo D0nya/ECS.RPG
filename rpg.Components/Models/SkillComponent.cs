@@ -7,11 +7,13 @@ namespace rpg.Components.Models
 {
     public class SkillComponent : ISkillComponent
     {
-        public Dictionary<SkillEnum, ISkill> Skills { get; set; }
+        public Dictionary<ActiveSkill, IActiveSkill> ActiveSkills { get; set; }
+        public Dictionary<PassiveSkill, IPassiveSkill> PassiveSkills { get; set; }
 
         public SkillComponent()
         {
-            Skills = new Dictionary<SkillEnum, ISkill>();
+            ActiveSkills = new Dictionary<ActiveSkill, IActiveSkill>();
+            PassiveSkills = new Dictionary<PassiveSkill, IPassiveSkill>();
         }
     }
 }
