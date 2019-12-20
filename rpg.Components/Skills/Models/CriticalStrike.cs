@@ -19,9 +19,9 @@ namespace rpg.Components.Skills.Models
         public void Modify(ref int damage)
         {
             Random random = new Random((int)DateTime.Now.ToBinary());
-            if(random.Next(0, 100) <= Chance)
+            if(random.Next(0, 100) <= (Chance * 100))
             {
-                damage *= (1 + Multipler);
+                damage *= Multipler;
                 Console.WriteLine("CRIT!");
             }
         }

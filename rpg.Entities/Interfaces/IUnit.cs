@@ -11,6 +11,6 @@ namespace rpg.Entities.Interfaces
         IManaComponent ManaComponent { get; set; }
         IArmorComponent ArmorComponent { get; set; }
         ISkillComponent SkillComponent { get; set; }
-        bool IsDead { get; set; }
+        bool IsDead { get; }
     }
 }

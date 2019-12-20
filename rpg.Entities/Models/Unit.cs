@@ -18,7 +18,10 @@ namespace rpg.Entities.Models
         public IManaComponent ManaComponent { get; set; }
         public IArmorComponent ArmorComponent { get; set; }
         public ISkillComponent SkillComponent { get; set; }
-        public bool IsDead { get; set; }
+        public bool IsDead 
+        {
+            get { return HealthComponent.HP <= 0; }
+        }
         public int ID { get; set; }
 
         public Unit(int id, IAttackComponent attackComponent,

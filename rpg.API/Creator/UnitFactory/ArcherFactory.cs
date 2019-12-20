@@ -14,8 +14,8 @@ namespace rpg.API.Creator.UnitFactory
         {
             Unit = new Archer(0, new AttackComponent(15, 20),
                                  new HealthComponent(300),
-                                 new ManaComponent(200),
-                                 new ArmorComponent(1),
+                                 new ManaComponent(100),
+                                 new ArmorComponent(0),
                                  new SkillComponent());
             Unit.SkillComponent.ActiveSkills.Add(ActiveSkill.SHOT, new Shot(50, 100));
             return Unit;
