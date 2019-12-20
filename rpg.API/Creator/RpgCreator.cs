@@ -3,7 +3,7 @@ using rpg.Entities.Models;
 
 namespace rpg.API.Creator
 {
-    public class RpgCreator : ICreator
+    public class RpgCreator
     {
         IUnitFactory unitFactory;
 
